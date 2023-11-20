@@ -13,10 +13,15 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+        
+        for idx in 0..<5 {
+            let task = Task(title: "Test task \(idx)", dueDate: Date(), context: viewContext)
         }
+        
+//        for _ in 0..<10 {
+//            let newItem = Item(context: viewContext)
+//            newItem.timestamp = Date()
+//        }
         do {
             try viewContext.save()
         } catch {
@@ -52,5 +57,15 @@ struct PersistenceController {
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+    
+    func save() {
+        let context = container.viewContext
+        guard context.hasChanges else { return }
+        do {
+            try context.save()
+        } catch {
+            print("error saving context: \(error)")            
+        }
     }
 }

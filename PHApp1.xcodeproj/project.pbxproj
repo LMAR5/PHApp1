@@ -13,6 +13,16 @@
 		023223592B097D9300AC2875 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023223582B097D9300AC2875 /* Preview Assets.xcassets */; };
 		0232235B2B097D9300AC2875 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232235A2B097D9300AC2875 /* Persistence.swift */; };
 		0232235E2B097D9300AC2875 /* PHApp1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0232235C2B097D9300AC2875 /* PHApp1.xcdatamodeld */; };
+		023223662B09E78F00AC2875 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223652B09E78F00AC2875 /* TaskModel.swift */; };
+		023223682B09EA9400AC2875 /* TaskListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223672B09EA9400AC2875 /* TaskListModel.swift */; };
+		0232236B2B0AD57400AC2875 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232236A2B0AD57400AC2875 /* TaskRow.swift */; };
+		0232236E2B0AD68000AC2875 /* TaskHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232236D2B0AD68000AC2875 /* TaskHelper.swift */; };
+		023223702B0ADFEF00AC2875 /* NSPredicateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232236F2B0ADFEF00AC2875 /* NSPredicateHelper.swift */; };
+		023223722B0AE53000AC2875 /* TaskListHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223712B0AE53000AC2875 /* TaskListHelper.swift */; };
+		023223742B0AEB5A00AC2875 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223732B0AEB5A00AC2875 /* MainView.swift */; };
+		023223762B0AED6100AC2875 /* TaskSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223752B0AED6100AC2875 /* TaskSection.swift */; };
+		023223782B0AF00400AC2875 /* TaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223772B0AF00400AC2875 /* TaskListRow.swift */; };
+		0232237A2B0BFCA900AC2875 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223792B0BFCA900AC2875 /* TaskListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +33,16 @@
 		023223582B097D9300AC2875 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0232235A2B097D9300AC2875 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		0232235D2B097D9300AC2875 /* PHApp1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PHApp1.xcdatamodel; sourceTree = "<group>"; };
+		023223652B09E78F00AC2875 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		023223672B09EA9400AC2875 /* TaskListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModel.swift; sourceTree = "<group>"; };
+		0232236A2B0AD57400AC2875 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		0232236D2B0AD68000AC2875 /* TaskHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHelper.swift; sourceTree = "<group>"; };
+		0232236F2B0ADFEF00AC2875 /* NSPredicateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateHelper.swift; sourceTree = "<group>"; };
+		023223712B0AE53000AC2875 /* TaskListHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListHelper.swift; sourceTree = "<group>"; };
+		023223732B0AEB5A00AC2875 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		023223752B0AED6100AC2875 /* TaskSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSection.swift; sourceTree = "<group>"; };
+		023223772B0AF00400AC2875 /* TaskListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRow.swift; sourceTree = "<group>"; };
+		023223792B0BFCA900AC2875 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,10 +75,12 @@
 		023223502B097D9100AC2875 /* PHApp1 */ = {
 			isa = PBXGroup;
 			children = (
+				0232236C2B0AD66B00AC2875 /* CoreData */,
+				023223692B0AD56400AC2875 /* Views */,
+				023223642B09E77300AC2875 /* Models */,
 				023223512B097D9100AC2875 /* PHApp1App.swift */,
 				023223532B097D9100AC2875 /* ContentView.swift */,
 				023223552B097D9300AC2875 /* Assets.xcassets */,
-				0232235A2B097D9300AC2875 /* Persistence.swift */,
 				0232235C2B097D9300AC2875 /* PHApp1.xcdatamodeld */,
 				023223572B097D9300AC2875 /* Preview Content */,
 			);
@@ -71,6 +93,38 @@
 				023223582B097D9300AC2875 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		023223642B09E77300AC2875 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				023223652B09E78F00AC2875 /* TaskModel.swift */,
+				023223672B09EA9400AC2875 /* TaskListModel.swift */,
+				023223752B0AED6100AC2875 /* TaskSection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		023223692B0AD56400AC2875 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0232236A2B0AD57400AC2875 /* TaskRow.swift */,
+				023223732B0AEB5A00AC2875 /* MainView.swift */,
+				023223772B0AF00400AC2875 /* TaskListRow.swift */,
+				023223792B0BFCA900AC2875 /* TaskListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0232236C2B0AD66B00AC2875 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0232235A2B097D9300AC2875 /* Persistence.swift */,
+				0232236D2B0AD68000AC2875 /* TaskHelper.swift */,
+				0232236F2B0ADFEF00AC2875 /* NSPredicateHelper.swift */,
+				023223712B0AE53000AC2875 /* TaskListHelper.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,10 +197,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023223682B09EA9400AC2875 /* TaskListModel.swift in Sources */,
 				0232235B2B097D9300AC2875 /* Persistence.swift in Sources */,
 				0232235E2B097D9300AC2875 /* PHApp1.xcdatamodeld in Sources */,
+				023223662B09E78F00AC2875 /* TaskModel.swift in Sources */,
+				023223762B0AED6100AC2875 /* TaskSection.swift in Sources */,
 				023223542B097D9100AC2875 /* ContentView.swift in Sources */,
+				0232236B2B0AD57400AC2875 /* TaskRow.swift in Sources */,
+				0232237A2B0BFCA900AC2875 /* TaskListView.swift in Sources */,
+				023223722B0AE53000AC2875 /* TaskListHelper.swift in Sources */,
+				023223742B0AEB5A00AC2875 /* MainView.swift in Sources */,
+				023223782B0AF00400AC2875 /* TaskListRow.swift in Sources */,
+				0232236E2B0AD68000AC2875 /* TaskHelper.swift in Sources */,
 				023223522B097D9100AC2875 /* PHApp1App.swift in Sources */,
+				023223702B0ADFEF00AC2875 /* NSPredicateHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
