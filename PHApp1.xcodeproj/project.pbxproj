@@ -23,6 +23,7 @@
 		023223762B0AED6100AC2875 /* TaskSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223752B0AED6100AC2875 /* TaskSection.swift */; };
 		023223782B0AF00400AC2875 /* TaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223772B0AF00400AC2875 /* TaskListRow.swift */; };
 		0232237A2B0BFCA900AC2875 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223792B0BFCA900AC2875 /* TaskListView.swift */; };
+		02CB24F02B1AB46A00B74633 /* ViewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB24EF2B1AB46A00B74633 /* ViewTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		023223752B0AED6100AC2875 /* TaskSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSection.swift; sourceTree = "<group>"; };
 		023223772B0AF00400AC2875 /* TaskListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRow.swift; sourceTree = "<group>"; };
 		023223792B0BFCA900AC2875 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		02CB24EF2B1AB46A00B74633 /* ViewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +110,10 @@
 		023223692B0AD56400AC2875 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0232236A2B0AD57400AC2875 /* TaskRow.swift */,
+				02CB24EE2B1AAA7C00B74633 /* TaskList */,
+				02CB24ED2B1AAA7300B74633 /* Task */,
+				02CB24EC2B195D2400B74633 /* Dashboard */,
 				023223732B0AEB5A00AC2875 /* MainView.swift */,
-				023223772B0AF00400AC2875 /* TaskListRow.swift */,
-				023223792B0BFCA900AC2875 /* TaskListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -125,6 +127,31 @@
 				023223712B0AE53000AC2875 /* TaskListHelper.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		02CB24EC2B195D2400B74633 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		02CB24ED2B1AAA7300B74633 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				0232236A2B0AD57400AC2875 /* TaskRow.swift */,
+				023223792B0BFCA900AC2875 /* TaskListView.swift */,
+				02CB24EF2B1AB46A00B74633 /* ViewTask.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		02CB24EE2B1AAA7C00B74633 /* TaskList */ = {
+			isa = PBXGroup;
+			children = (
+				023223772B0AF00400AC2875 /* TaskListRow.swift */,
+			);
+			path = TaskList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +226,7 @@
 			files = (
 				023223682B09EA9400AC2875 /* TaskListModel.swift in Sources */,
 				0232235B2B097D9300AC2875 /* Persistence.swift in Sources */,
+				02CB24F02B1AB46A00B74633 /* ViewTask.swift in Sources */,
 				0232235E2B097D9300AC2875 /* PHApp1.xcdatamodeld in Sources */,
 				023223662B09E78F00AC2875 /* TaskModel.swift in Sources */,
 				023223762B0AED6100AC2875 /* TaskSection.swift in Sources */,
@@ -347,6 +375,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,6 +405,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

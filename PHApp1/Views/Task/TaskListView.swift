@@ -12,8 +12,14 @@ import CoreData
 struct TaskListView: View {    
     //Parameters for TaskListView view.
     let title: String
-    @FetchRequest(fetchRequest: Task.fetch(), animation: .default) var tasks
-    @Environment(\.managedObjectContext) var context
+    @FetchRequest(fetchRequest: Task.fetch(), animation: .default) 
+    var tasks
+    @Environment(\.managedObjectContext)
+    var context
+    @State
+    private var selectedTask: Task? = nil
+    @State
+    private var showInspector: Bool = false
     
     init(title: String) {
         self.title = title
@@ -25,7 +31,8 @@ struct TaskListView: View {
     
     var body: some View {
         List(tasks) { task in
-            TaskRow(objtask: task)
+            TaskRow(objtask: task,
+                    selectedTask: $selectedTask, inspectorIsShown: $showInspector)
         }
         .navigationTitle(title)
         .toolbar {
@@ -37,6 +44,10 @@ struct TaskListView: View {
                 } label: {
                     Label("Add New Task", systemImage: "plus")
                 }
+            }
+        }.inspector(isPresented: $showInspector){
+            if let selectedTask {
+                ViewTask(task: selectedTask)
             }
         }
     }

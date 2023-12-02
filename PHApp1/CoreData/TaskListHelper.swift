@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 extension TaskList {
     
@@ -42,9 +43,26 @@ extension TaskList {
     }
     
     //Function to delete objects
-    static func delete(tasklist: TaskList) {
-        guard let context = tasklist.managedObjectContext else { return }
-        context.delete(tasklist)
+    //static func delete(tasklist: TaskList) {
+    //    guard let context = tasklist.managedObjectContext else { return }
+    //    context.delete(tasklist)
+    //}
+    
+    // New function to delete objects with animation (from class file TodoApp.zip of Week 11)
+    static func deleteList(tasklist: TaskList) {
+        withAnimation {
+            //offsets.map { items[$0] }.forEach(viewContext.delete)
+            guard let context = tasklist.managedObjectContext else { return }
+            context.delete(tasklist)
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
     }
     
     static func fetch(_ predicate: NSPredicate = .all) -> NSFetchRequest<TaskList> {

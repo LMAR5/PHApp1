@@ -28,9 +28,14 @@ struct MainView: View {
                         .tag(TaskSection.list(list))
                         .contextMenu {
                             Button("Delete", role: .destructive) {
-                                TaskList.delete(tasklist: list)
+                                TaskList.deleteList(tasklist: list)
                             }
                         }
+                }.onDelete { indexSet in
+                    guard let index = indexSet.first else {
+                        return
+                    }
+                    TaskList.deleteList(tasklist: taskLists[index])
                 }
             }
         }.safeAreaInset(edge: .bottom) {
