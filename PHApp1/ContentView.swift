@@ -23,7 +23,7 @@ struct ContentView: View {
             MainView(selection: $selection)
                 .navigationTitle("Priority Hub")
         } detail: {
-            TaskListView(title: "All")
+            TaskListView(title: selection?.displayName ?? "All", selection: selection)
         }
         
 //        NavigationView {

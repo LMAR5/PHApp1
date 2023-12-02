@@ -20,11 +20,35 @@ struct TaskListView: View {
     private var selectedTask: Task? = nil
     @State
     private var showInspector: Bool = false
+    let tasklist: TaskList?
     
-    init(title: String) {
+    
+    init(title: String, selection: TaskSection?) {
         self.title = title
         let request = Task.fetch()
-        request.predicate = nil
+        switch selection {
+            case .all:
+                request.predicate = nil
+            case .done:
+                request.predicate = NSPredicate(format: "isCompleted == true")
+            case .pending:
+                request.predicate = NSPredicate(format: "isCompleted == false")
+            case .highpriority:
+                request.predicate = NSPredicate(format: "isHighPriority == true")
+            case .list(let input_list):
+                request.predicate = NSPredicate(format: "parentList == %@", input_list as CVarArg)
+            case nil:
+                request.predicate = NSPredicate.none
+        }
+        
+        switch selection {
+            case .all, .done, .pending, .highpriority:
+                tasklist = nil
+            case .list(let input_list):
+                self.tasklist = input_list
+            case nil:
+                tasklist = nil
+        }
         
         self._tasks = FetchRequest(fetchRequest: request, animation: .default)
     }
@@ -40,14 +64,17 @@ struct TaskListView: View {
                 Button {
                     //To do: Update task in CD
                     let task = Task(title: "New", dueDate: Date(), context: context)
+                    task.parentList = tasklist
                     PersistenceController.shared.save()
                 } label: {
                     Label("Add New Task", systemImage: "plus")
-                }
+                }                
             }
         }.inspector(isPresented: $showInspector){
             if let selectedTask {
                 ViewTask(task: selectedTask)
+            } else {
+                ContentUnavailableView("Please select a task", systemImage: "circle.inset.filled")
             }
         }
     }
@@ -57,6 +84,6 @@ struct TaskListView: View {
 //Code to preview this view with sample data
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskListView(title: "All").environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        TaskListView(title: "All", selection: .all).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

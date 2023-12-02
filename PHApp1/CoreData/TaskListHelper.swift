@@ -30,6 +30,11 @@ extension TaskList {
         createdDate_ ?? Date()
     }
     
+    var childTasks: Set<Task> {
+        get { (childTasks_ as? Set<Task>) ?? [] }
+        set { childTasks_ = newValue as NSSet }
+    }
+    
     //Create convenience initializer to avoid conflict with default one
     convenience init(title: String, context: NSManagedObjectContext) {
         self.init(context: context)
@@ -79,6 +84,7 @@ extension TaskList {
         let context = PersistenceController.preview.container.viewContext
         let list = TaskList(title: "Web development", context: context)
         //let task = Task(title: "Study math", dueDate: Date(), context: context)
+        list.childTasks.insert(Task.mockExample)
         
         return list
     }
