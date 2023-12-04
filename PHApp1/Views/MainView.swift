@@ -37,7 +37,7 @@ struct MainView: View {
                     }
                     TaskList.deleteList(tasklist: taskLists[index])
                 }
-            }
+            }                     
         }.safeAreaInset(edge: .bottom) {
             Button(action: {
                 let newList = TaskList(title: "New list", context: context)

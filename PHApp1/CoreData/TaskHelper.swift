@@ -61,12 +61,46 @@ extension Task {
         return request
     }
     
+    static func fetchTasksHighPriority() -> NSFetchRequest<Task> {
+        let request = Task.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Task.dueDate_, ascending: true),
+                                   NSSortDescriptor(keyPath: \Task.title_, ascending: true)]
+        request.predicate = NSPredicate(format: "isHighPriority == true")
+        return request
+    }
+    
+    static func fetchTasksLowPriority() -> NSFetchRequest<Task> {
+        let request = Task.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Task.dueDate_, ascending: true),
+                                   NSSortDescriptor(keyPath: \Task.title_, ascending: true)]
+        request.predicate = NSPredicate(format: "isHighPriority == false")
+        return request
+    }
+    
+    static func fetchCompletedTasks() -> NSFetchRequest<Task> {
+        let request = Task.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Task.dueDate_, ascending: true),
+                                   NSSortDescriptor(keyPath: \Task.title_, ascending: true)]
+        request.predicate = NSPredicate(format: "isCompleted == true")
+        return request
+    }
+    
     //To mock sample data of Task for previews in other Views
     static var mockExample: Task {
         let context = PersistenceController.preview.container.viewContext
         let task = Task(title: "Study math", dueDate: Date(), context: context)
         
         return task
+    }
+    
+    static var mockExampleChart: [Task] {
+        let context = PersistenceController.preview.container.viewContext
+        let task1 = Task(title: "Buy banana", dueDate: Date(), context: context)
+        let task2 = Task(title: "Study math", dueDate: Date(), context: context)
+        let task3 = Task(title: "Code iOS app", dueDate: Date(), context: context)
+        
+        let list = [task1, task2, task3]
+        return list
     }
     
 }

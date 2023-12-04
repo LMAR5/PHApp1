@@ -42,7 +42,7 @@ struct TaskListView: View {
         }
         
         switch selection {
-            case .all, .done, .pending, .highpriority:
+        case .all, .done, .pending, .highpriority:
                 tasklist = nil
             case .list(let input_list):
                 self.tasklist = input_list
