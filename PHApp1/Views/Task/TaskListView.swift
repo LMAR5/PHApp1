@@ -54,9 +54,16 @@ struct TaskListView: View {
     }
     
     var body: some View {
-        List(tasks) { task in
-            TaskRow(objtask: task,
-                    selectedTask: $selectedTask, inspectorIsShown: $showInspector)
+        List {
+            ForEach(tasks) { task in
+                TaskRow(objtask: task,
+                        selectedTask: $selectedTask, inspectorIsShown: $showInspector)
+            }.onDelete(perform: { indexSet in
+                guard let index = indexSet.first else {
+                    return
+                }
+                Task.delete(task: tasks[index])
+            })
         }
         .navigationTitle(title)
         .toolbar {
@@ -70,10 +77,12 @@ struct TaskListView: View {
                     Label("Add New Task", systemImage: "plus")
                 }                
             }
-        }.inspector(isPresented: $showInspector){
+        }
+        .inspector(isPresented: $showInspector){
             if let selectedTask {
                 ViewTask(task: selectedTask)
-            } else {
+            } 
+            else {
                 ContentUnavailableView("Please select a task", systemImage: "circle.inset.filled")
             }
         }

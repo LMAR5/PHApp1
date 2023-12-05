@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var selection: TaskSection? = TaskSection.initialValue
     
     var body: some View {
-        TabView{
+        TabView{    
             NavigationSplitView {
                 MainView(selection: $selection)
                     .navigationTitle("Priority Hub")

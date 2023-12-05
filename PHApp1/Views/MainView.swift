@@ -41,6 +41,7 @@ struct MainView: View {
         }.safeAreaInset(edge: .bottom) {
             Button(action: {
                 let newList = TaskList(title: "New list", context: context)
+                PersistenceController.shared.save()
             }, label: {
                 Label("Add List", systemImage: "plus").padding(.leading)
             })

@@ -9,8 +9,6 @@ import SwiftUI
 
 struct CircularProgressView: View {
     
-    let progress: Double
-    
     @FetchRequest(fetchRequest: Task.fetch(), animation: .default)
     var allTasks
     
@@ -22,9 +20,9 @@ struct CircularProgressView: View {
             Spacer()
             ZStack {
                 VStack {
-                    Text("Completed tasks")
-                    Text("\(completedTasks.count)")
-                    Text("(\(Float(completedTasks.count)/Float(allTasks.count) * 100, specifier: "%.0f")%)")
+                    Text("Completed tasks").bold()
+                    Text("\(completedTasks.count)").bold()
+                    Text("(\(Float(completedTasks.count)/Float(allTasks.count) * 100, specifier: "%.0f")%)").bold()
                     
                 }
                 //Progres circle at the back
@@ -45,5 +43,5 @@ struct CircularProgressView: View {
 
 
 #Preview {
-    CircularProgressView(progress: 0.8)
+    CircularProgressView()
 }

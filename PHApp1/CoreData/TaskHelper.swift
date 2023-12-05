@@ -7,10 +7,16 @@
 
 import Foundation
 import CoreData
+import SwiftUI
+
+enum StoreError: Error {
+    case missingProperty
+    case noEntityWithThatId
+}
 
 extension Task {
    
-    // To avoid optionals
+    // To avoid uid optional
     var uid: UUID {
         #if DEBUG
         uid_!
@@ -48,13 +54,36 @@ extension Task {
     
     //Function to delete objects
     static func delete(task: Task) {
+        withAnimation {
+            guard let context = task.managedObjectContext else { return }
+            context.delete(task)
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    
+    static func updateTask(isCompleted: Bool, isHighPriority: Bool, for task: Task) throws {
         guard let context = task.managedObjectContext else { return }
-        context.delete(task)
+        let request = Task.fetchRequest()
+        request.predicate = NSPredicate(format: "uid_ == %@", task.uid as CVarArg)
+        request.fetchLimit = 1
+        guard let entity = try context.fetch(request).first else {
+            throw StoreError.noEntityWithThatId
+        }
+        entity.isCompleted = isCompleted
+        entity.isHighPriority = isHighPriority
+        entity.dueDate = task.dueDate        
+        try context.save()
     }
     
     static func fetch(_ predicate: NSPredicate = .all) -> NSFetchRequest<Task> {
         let request = Task.fetchRequest()
-        //Sort the elements fetched from Core Data
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Task.dueDate_, ascending: true),
                                    NSSortDescriptor(keyPath: \Task.title_, ascending: true)]
         request.predicate = predicate

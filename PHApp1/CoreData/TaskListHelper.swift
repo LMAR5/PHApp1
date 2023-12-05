@@ -79,6 +79,18 @@ extension TaskList {
         return request
     }
     
+    static func updateTaskList(for tasklist: TaskList) throws {
+        guard let context = tasklist.managedObjectContext else { return }
+        let request = TaskList.fetchRequest()
+        request.predicate = NSPredicate(format: "uid_ == %@", tasklist.uid as CVarArg)
+        request.fetchLimit = 1
+        guard let entity = try context.fetch(request).first else {
+            throw StoreError.noEntityWithThatId
+        }
+        entity.title = tasklist.title
+        try context.save()
+    }
+    
     //To mock sample data of TaskList for previews in other Views
     static var mockExample: TaskList {
         let context = PersistenceController.preview.container.viewContext

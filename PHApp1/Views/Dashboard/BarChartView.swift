@@ -8,19 +8,7 @@
 import SwiftUI
 import Charts
 
-struct ChartDataModel: Identifiable {
-    let status: String
-    let number: Int
-    var id = UUID()
-}
-
 struct BarChartView: View {
-    
-    //let data = Task.mockExampleChart
-    let data: [ChartDataModel] = [
-        .init(status: "High", number: 4),
-        .init(status: "Low", number: 2)
-    ]
     
     @FetchRequest(fetchRequest: Task.fetchTasksHighPriority(), animation: .default)
     var highTasks
@@ -30,7 +18,7 @@ struct BarChartView: View {
     
     var body: some View {
         VStack {
-            Text("Number of tasks by priority")
+            Text("Number of tasks by priority").bold()
             Chart {
                 BarMark(
                     x: .value("Priority", "High"),

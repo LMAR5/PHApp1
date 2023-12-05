@@ -29,12 +29,22 @@ struct TaskRow: View {
     var body: some View {
         HStack {
             Image(systemName: objtask.isCompleted ? "largecircle.fill.circle" : "circle")
-                .onTapGesture {
-                    objtask.isCompleted.toggle()
+                .onTapGesture {                    
+                    do {
+                        try Task.updateTask(isCompleted: !objtask.isCompleted, isHighPriority: objtask.isHighPriority, for: objtask)
+                    } catch {
+                        print("isCompleted not updated")
+                    }
             }
             Image(systemName: objtask.isHighPriority ? "exclamationmark" : "").foregroundColor(.red)
             TextField("New Task", text: $objtask.title)
-                .textFieldStyle(.plain)
+                .textFieldStyle(.plain).onChange(of: objtask.title) {
+                    do {
+                        try Task.updateTask(isCompleted: objtask.isCompleted, isHighPriority: objtask.isHighPriority, for: objtask)
+                    } catch {
+                        print("Title not updated")
+                    }
+                }
             Button(action: {
                 inspectorIsShown = true
                 selectedTask = objtask

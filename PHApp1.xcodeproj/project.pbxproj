@@ -24,7 +24,8 @@
 		023223782B0AF00400AC2875 /* TaskListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223772B0AF00400AC2875 /* TaskListRow.swift */; };
 		0232237A2B0BFCA900AC2875 /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023223792B0BFCA900AC2875 /* TaskListView.swift */; };
 		0234A5DB2B1C6F52000AA52A /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0234A5DA2B1C6F52000AA52A /* CircularProgressView.swift */; };
-		0234A5DD2B1C7958000AA52A /* DashboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0234A5DC2B1C7958000AA52A /* DashboardHelper.swift */; };
+		02645E572B1FBB34009A0F3A /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02645E562B1FBB34009A0F3A /* PieChartView.swift */; };
+		02645E592B1FC215009A0F3A /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02645E582B1FC215009A0F3A /* TableView.swift */; };
 		02CB24F02B1AB46A00B74633 /* ViewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CB24EF2B1AB46A00B74633 /* ViewTask.swift */; };
 		02D7F80D2B1D52F70070D92D /* DashboardMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D7F80C2B1D52F70070D92D /* DashboardMain.swift */; };
 		02D7F80F2B1D53440070D92D /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D7F80E2B1D53440070D92D /* BarChartView.swift */; };
@@ -49,7 +50,8 @@
 		023223772B0AF00400AC2875 /* TaskListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRow.swift; sourceTree = "<group>"; };
 		023223792B0BFCA900AC2875 /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		0234A5DA2B1C6F52000AA52A /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
-		0234A5DC2B1C7958000AA52A /* DashboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHelper.swift; sourceTree = "<group>"; };
+		02645E562B1FBB34009A0F3A /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		02645E582B1FC215009A0F3A /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		02CB24EF2B1AB46A00B74633 /* ViewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTask.swift; sourceTree = "<group>"; };
 		02D7F80C2B1D52F70070D92D /* DashboardMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMain.swift; sourceTree = "<group>"; };
 		02D7F80E2B1D53440070D92D /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
@@ -133,7 +135,6 @@
 				0232236D2B0AD68000AC2875 /* TaskHelper.swift */,
 				0232236F2B0ADFEF00AC2875 /* NSPredicateHelper.swift */,
 				023223712B0AE53000AC2875 /* TaskListHelper.swift */,
-				0234A5DC2B1C7958000AA52A /* DashboardHelper.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -144,6 +145,8 @@
 				02D7F80C2B1D52F70070D92D /* DashboardMain.swift */,
 				0234A5DA2B1C6F52000AA52A /* CircularProgressView.swift */,
 				02D7F80E2B1D53440070D92D /* BarChartView.swift */,
+				02645E562B1FBB34009A0F3A /* PieChartView.swift */,
+				02645E582B1FC215009A0F3A /* TableView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -242,16 +245,17 @@
 				02CB24F02B1AB46A00B74633 /* ViewTask.swift in Sources */,
 				0232235E2B097D9300AC2875 /* PHApp1.xcdatamodeld in Sources */,
 				023223662B09E78F00AC2875 /* TaskModel.swift in Sources */,
-				0234A5DD2B1C7958000AA52A /* DashboardHelper.swift in Sources */,
 				023223762B0AED6100AC2875 /* TaskSection.swift in Sources */,
 				02D7F80D2B1D52F70070D92D /* DashboardMain.swift in Sources */,
 				023223542B097D9100AC2875 /* ContentView.swift in Sources */,
+				02645E592B1FC215009A0F3A /* TableView.swift in Sources */,
 				0232236B2B0AD57400AC2875 /* TaskRow.swift in Sources */,
 				0232237A2B0BFCA900AC2875 /* TaskListView.swift in Sources */,
 				023223722B0AE53000AC2875 /* TaskListHelper.swift in Sources */,
 				0234A5DB2B1C6F52000AA52A /* CircularProgressView.swift in Sources */,
 				023223742B0AEB5A00AC2875 /* MainView.swift in Sources */,
 				023223782B0AF00400AC2875 /* TaskListRow.swift in Sources */,
+				02645E572B1FBB34009A0F3A /* PieChartView.swift in Sources */,
 				0232236E2B0AD68000AC2875 /* TaskHelper.swift in Sources */,
 				023223522B097D9100AC2875 /* PHApp1App.swift in Sources */,
 				023223702B0ADFEF00AC2875 /* NSPredicateHelper.swift in Sources */,

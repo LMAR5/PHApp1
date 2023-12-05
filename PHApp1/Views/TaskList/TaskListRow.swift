@@ -15,7 +15,13 @@ struct TaskListRow: View {
     var body: some View {
         HStack {
             Image(systemName: "list.bullet")
-            TextField("New list", text: $taskList.title)
+            TextField("New list", text: $taskList.title).onChange(of: taskList.title) {
+                do {
+                    try TaskList.updateTaskList(for: taskList)
+                } catch {
+                    print("Title not updated")
+                }
+            }
         }
     }
 }
