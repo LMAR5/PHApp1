@@ -21,3 +21,6 @@ Some of the features Priority Hub offers are the following:
 - SwiftCharts
 
 ### Wireframes
+![Main view](https://github.com/LMAR5/PHApp1/blob/main/Wireframes/1_Wireframe_MainView.png)
+![Task list](https://github.com/LMAR5/PHApp1/blob/main/Wireframes/2_Wireframe_TaskList.png)
+![Dashboard](https://github.com/LMAR5/PHApp1/blob/main/Wireframes/3_Wireframe_Dashboard.png)
