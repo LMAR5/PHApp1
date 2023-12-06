@@ -5,12 +5,26 @@
 //  Created by Luis Aguilar on 12/5/23.
 //
 
+
+class TaskUpdateManager: ObservableObject {
+    
+    static let shared = TaskUpdateManager()
+    
+    func update() {
+        self.objectWillChange.send()
+    }
+}
+
+
 import SwiftUI
 
 struct TableView: View {
     
     @FetchRequest(fetchRequest: TaskList.fetch(), animation: .default)
     var tasklists
+    
+    @StateObject
+    var taskManager = TaskUpdateManager.shared
     
     var body: some View {
         List {
@@ -36,7 +50,7 @@ struct TableView: View {
                 }
             }
         }
-        .scrollContentBackground(.hidden)        
+        .scrollContentBackground(.hidden)
     }
 }
 

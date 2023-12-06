@@ -18,6 +18,7 @@ struct ViewTask: View {
             Toggle(task.isCompleted ? "Completed": "Pending", isOn: $task.isCompleted).onTapGesture {
                 do {
                     try Task.updateTask(isCompleted: !task.isCompleted, isHighPriority: task.isHighPriority, for: task)
+                    TaskUpdateManager.shared.update()
                 } catch {
                     print("isCompleted not updated")
                 }

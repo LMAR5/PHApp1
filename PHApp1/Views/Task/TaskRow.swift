@@ -32,6 +32,7 @@ struct TaskRow: View {
                 .onTapGesture {                    
                     do {
                         try Task.updateTask(isCompleted: !objtask.isCompleted, isHighPriority: objtask.isHighPriority, for: objtask)
+                        TaskUpdateManager.shared.update()
                     } catch {
                         print("isCompleted not updated")
                     }
